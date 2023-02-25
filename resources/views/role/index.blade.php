@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- @if(!auth()->user()->can('create role'))
+    
     <button>Tambah</button>
+
+    @endif -->
+    hello
+    @can('create role')
+    <button>Tambah</button>
+    @endcan
 </body>
 </html>
