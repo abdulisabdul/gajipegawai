@@ -23,11 +23,11 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
-     //   $this->authorize('read role');
+      $this->authorize('read role');
     //    if(Gate::allows('read role')){
     //     abort(403,'unautorized');
     //    }
-        return view('role.index');
+        return view('konfigurasi.role');
     }
 
     /**
