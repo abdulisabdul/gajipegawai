@@ -13,23 +13,39 @@ class NavigationSeeder extends Seeder
      */
     public function run(): void
     {
-        Navigation::create([
+        $konfigurasi = Navigation::create([
             'name' => 'konfigurasi',
             'url' => 'konfigurasi',
             'icon' => 'ti-settings',
             'main_menu' => null,
         ]);
-        Navigation::create([
+        $konfigurasi->subMenus()->create([
             'name' => 'Roles',
             'url' => 'konfigurasi/roles',
             'icon' => '',
             'main_menu' => 1,
+
         ]);
-        Navigation::create([
+      
+        $konfigurasi->subMenus()->create([
             'name' => 'Permissions',
             'url' => 'konfigurasi/permissions',
             'icon' => '',
             'main_menu' => 1,
         ]);
+
+        $transaksi = Navigation::create([
+            'name' => 'Transaksi',
+            'url' => 'transaksi',
+            'icon' => 'ti-book',
+            'main_menu' => null,
+        ]);
+        $transaksi->subMenus()->create([
+            'name' => 'Tes',
+            'url' => 'transaksi/tes',
+            'icon' => '',
+            'main_menu' => 1,
+        ]);
+       
     }
 }

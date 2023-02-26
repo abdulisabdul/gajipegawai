@@ -19,7 +19,7 @@ class RoleController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('can:create role')->only('create');
+        $this->middleware('can:create konfigurasi/roles')->only('create');
 
     }
     /**
@@ -27,7 +27,7 @@ class RoleController extends Controller
      */
     public function index(RoleDataTable $dataTable)
     {
-      $this->authorize('read role');
+      $this->authorize('read konfigurasi/roles');
       return $dataTable->render('konfigurasi.role');
 
     //    if(Gate::allows('read role')){

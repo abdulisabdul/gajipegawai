@@ -59,17 +59,23 @@ class UserRolePermissionSeeder extends Seeder
         $role_manager = Role::create(['name' => 'manager']);
         $role_it = Role::create(['name' => 'it']);
 
-        $permission= Permission::create(['name' => 'read role']);
-        $permission= Permission::create(['name' => 'create role']);
-        $permission= Permission::create(['name' => 'update role']);
-        $permission= Permission::create(['name' => 'delete role']);
+        $permission= Permission::create(['name' => 'read konfigurasi/roles']);
+        $permission= Permission::create(['name' => 'create konfigurasi/roles']);
+        $permission= Permission::create(['name' => 'update konfigurasi/roles']);
+        $permission= Permission::create(['name' => 'delete konfigurasi/roles']);
+        $permission= Permission::create(['name' => 'read konfigurasi/permissions']);
+        //$permission= Permission::create(['name' => 'read transaksi/tes']);
         Permission::create((['name' => 'read konfigurasi']));
 
-        $role_it->givePermissionTo('read role');
-        $role_it->givePermissionTo('create role');
-        $role_it->givePermissionTo('update role');
-        $role_it->givePermissionTo('delete role');
-        $role_it->givePermissionTo('read konfigurasi');
+        $role_it->givePermissionTo('read konfigurasi/roles');
+        $role_it->givePermissionTo('create konfigurasi/roles');
+        $role_it->givePermissionTo('update konfigurasi/roles');
+        $role_it->givePermissionTo('delete konfigurasi/roles', 'read konfigurasi' );
+        
+
+        $role_it->givePermissionTo('read konfigurasi/permissions');
+
+        //$role_it->givePermissionTo('read transaksi/tes');
         
 
         $staff->assignRole('staff');

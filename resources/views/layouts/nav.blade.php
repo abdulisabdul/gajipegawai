@@ -38,18 +38,27 @@
                     </li>
                     @endcan --}}
                     @foreach (getMenus() as $menu)
+                    @can('read '.$menu->url)
+                        
+                   
                             <li class="{{ request()->segment(1) == $menu->url ? 'active open' : ''}}">
                                 <a href="#" class="main-menu has-dropdown">
-                                    <i class="ti-desktop"></i>
-                                    <span>{{ $menu->name}}</span>
+                                    <i class="{{ $menu->icon }}"></i>
+                                    <span>{{ $menu->name }}</span>
                                 </a>
-                                <ul class="sub-menu {{ request()->segment(1) == 'dashboard' ? 'expand' : ''}}">
+                                <ul class="sub-menu {{ request()->segment(1) == $menu->url ? 'expand' : ''}}">
                                     @foreach ($menu->subMenus as $submenu)
+                                    @can('read '.$submenu->url)
                                     
-                                    <li class="{{ request()->segment(1) == explode('/', $submenu->url)[0] && request()->segment(2) == explode('/', $submenu->url)[1] ? 'active' : ''}}"><a href="{{ url($submenu->url)}}" class="link"><span>{{ $submenu->name}}</span></a></li>
+                                    <li class="{{ request()->segment(1) == explode('/', $submenu->url)[0] && request()->segment(2) == explode('/', $submenu->url)[1] ? 'active' : ''}}">
+                                        <a href="{{ url($submenu->url) }}" class="link"><span>{{ $submenu->name }}</span>
+                                        </a>
+                                    </li>
+                                    @endcan
                                     @endforeach
                                 </ul>
                             </li>
+                            @endcan
                         
                     @endforeach
                 </ul>
