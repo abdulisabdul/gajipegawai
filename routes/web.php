@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function(){
     Route::resource('konfigurasi/roles',RoleController::class);
+    Route::resource('konfigurasi/permissions',PermissionController::class);
 
 });
 
