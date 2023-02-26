@@ -41,15 +41,19 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return 'role creat page';
+        return view('konfigurasi.role-action',['role' => new Role()]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        //
+        Role::create($request->all());
+        return response()->json([
+            'status' => 'succes',
+            'message' => 'Create data Successfully'
+        ]);
     }
 
     /**
