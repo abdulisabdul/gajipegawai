@@ -28,6 +28,8 @@ class RoleController extends Controller
     public function index(RoleDataTable $dataTable)
     {
       $this->authorize('read konfigurasi/roles');
+      
+
       return $dataTable->render('konfigurasi.role');
 
     //    if(Gate::allows('read role')){

@@ -22,7 +22,7 @@ class UserRolePermissionSeeder extends Seeder
     {
         $default_user_value = [
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' => Str::random(10),
         ];
 
@@ -33,25 +33,25 @@ class UserRolePermissionSeeder extends Seeder
         $it = User::create(array_merge([
             'name' => 'it',
              'email' => 'it@gmail.com',
-            
+
         ], $default_user_value));
-       
+
         $staff = User::create(array_merge([
             'name' => 'staff',
             'email' => 'staff@gmail.com',
-            
+
         ], $default_user_value));
 
         $spv = User::create(array_merge([
             'name' => 'spv',
              'email' => 'spv@gmail.com',
-            
+
         ], $default_user_value));
 
         $manager = User::create(array_merge([
             'name' => 'manager',
             'email' => 'manager@gmail.com',
-           
+
         ], $default_user_value));
 
         $role_staff = Role::create(['name' => 'staff']);
@@ -71,12 +71,12 @@ class UserRolePermissionSeeder extends Seeder
         $role_it->givePermissionTo('create konfigurasi/roles');
         $role_it->givePermissionTo('update konfigurasi/roles');
         $role_it->givePermissionTo('delete konfigurasi/roles', 'read konfigurasi' );
-        
+
 
         $role_it->givePermissionTo('read konfigurasi/permissions');
 
         //$role_it->givePermissionTo('read transaksi/tes');
-        
+
 
         $staff->assignRole('staff');
         $spv->assignRole('spv');
@@ -84,7 +84,7 @@ class UserRolePermissionSeeder extends Seeder
         $it->assignRole('it');
 
         DB::commit();
-    } 
+    }
     catch(\Throwable $th)
     {
         dd($th);

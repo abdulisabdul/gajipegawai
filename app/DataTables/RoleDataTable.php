@@ -32,10 +32,10 @@ class RoleDataTable extends DataTable
             ->addIndexColumn()
             ->addColumn('action', function($row){
                 $action = '';
-                if(Gate::allows('update role')){
+                if(Gate::allows('update konfigurasi/roles')){
                     $action = '<button type="button" data-id='.$row->id.' data-jenis="edit" class="btn btn-primary btn-sm action"><i class="ti-pencil"></i></button>';
                 }
-                if(Gate::allows('delete role')){
+                if(Gate::allows('delete konfigurasi/roles')){
                     $action .= ' <button type="button" data-id='.$row->id.' data-jenis="delete" class="btn btn-danger btn-sm action"><i class="ti-trash"></i></button>';
                 }
                 return $action;
@@ -90,7 +90,7 @@ class RoleDataTable extends DataTable
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
-            
+
         ];
     }
 

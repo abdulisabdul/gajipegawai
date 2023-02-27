@@ -2,7 +2,7 @@
 @push('css')
 <link href="{{ asset('')}}vendor/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="{{ asset('')}}vendor/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" />
-    
+
 @endpush
 @section('content')
 <div class="main-content">
@@ -17,9 +17,9 @@
                         <h4>Roles</h4>
                     </div>
                     <div class="card-body">
-                        @if (request()->user()->can('create role'))
+                        @if (request()->user()->can('create konfigurasi/roles'))
                         <button type="button" class="btn btn-primary mb-3 btn-add">Tambah Data</button>
-                            
+
                         @endif
                         {{ $dataTable->table() }}
                     </div>
@@ -30,7 +30,7 @@
     <div class="modal fade" id="modalAction" tabindex="-1" aria-labelledby="largeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        
+
     </div>
 </div>
 </div>
@@ -44,7 +44,6 @@
 
 <script>
     const modal = new bootstrap.Modal($('#modalAction'))
-    
 
     $('.btn-add').on('click', function(){
         $.ajax({
@@ -87,7 +86,7 @@
                                 $(`[name='${key}']`).parent().append(`<span class="text-danger text-small">${value}</span>`)
                             }
                         }
-                    }    
+                    }
             })
         })
     }
@@ -124,9 +123,9 @@
                                                 res.status
                                             )
                                 }
-                                
+
                              })
-                        }                     
+                        }
                     })
                 return
 
@@ -141,9 +140,9 @@
                     store()
                 }
         })
-       
+
      })
-    
+
 </script>
-    
+
 @endpush
