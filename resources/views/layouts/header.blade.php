@@ -156,10 +156,13 @@
                                         <i class="ti-settings"></i> Setting
                                     </div>
                                 </a>
-                                <a href="#">
-                                    <div class="description">
-                                        <i class="ti-power-off"></i> Logout
-                                    </div>
+                                <a href="#" id="logout" >
+                                    <form action="{{ route('logout') }}" id="form-logout" method="post">
+                                        @csrf
+                                        <div class="description">
+                                            <i class="ti-power-off"></i> Logout
+                                        </div>
+                                    </form>
                                 </a>
                             </li>
                         </ul>

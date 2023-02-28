@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MasterJabatanController;
+use App\Http\Controllers\MasterPegawaiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProfileController;
@@ -36,7 +38,13 @@ Route::middleware('auth')->group(function(){
     Route::resource('konfigurasi/roles',RoleController::class);
     Route::resource('konfigurasi/permissions',PermissionController::class);
 
+    // master jabatan
+    Route::resource('master-data/master-jabatan', MasterJabatanController::class);
+    // master pegawai
+    Route::resource('master-data/master-pegawai', MasterPegawaiController::class);
 });
+
+
 
 // Route::controller(RoleController::class)->group(function(){
 //     Route::get('/roles', 'index')->middleware('can:read role');

@@ -50,6 +50,11 @@
     <script src="../assets/js/main.js"></script>
     <script>
         Main.init()
+
+        const logout = document.getElementById('logout')
+        logout.addEventListener('click', function(){
+            document.getElementById('form-logout').submit()
+        })
     </script>
 </body>
 
